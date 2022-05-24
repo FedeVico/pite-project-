@@ -8,7 +8,7 @@ from django.core import serializers
 import json
  
  
-from .models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, Attendance, AttendanceReport, LeaveReportStaff, FeedBackStaffs, StudentResult
+from .models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, Attendance, AttendanceReport, StudentResult
  
  
 def staff_home(request):
@@ -37,12 +37,6 @@ def staff_home(request):
     # Fetch All Attendance Count
     attendance_count = Attendance.objects.filter(subject_id__in=subjects).count()
      
-    # Fetch All Approve Leave
-    # print(request.user)
-    print(request.user.user_type)
-    staff = Staffs.objects.get(admin=request.user.id)
-    leave_count = LeaveReportStaff.objects.filter(staff_id=staff.id,
-                                                  leave_status=1).count()
  
     # Fetch Attendance Data by Subjects
     subject_list = []
@@ -68,7 +62,6 @@ def staff_home(request):
     context={
         "students_count": students_count,
         "attendance_count": attendance_count,
-        "leave_count": leave_count,
         "subject_count": subject_count,
         "subject_list": subject_list,
         "attendance_list": attendance_list,
@@ -88,63 +81,6 @@ def staff_take_attendance(request):
         "session_years": session_years
     }
     return render(request, "staff_template/take_attendance_template.html", context)
- 
- 
-def staff_apply_leave(request):
-    print(request.user.id)
-    staff_obj = Staffs.objects.get(admin=request.user.id)
-    leave_data = LeaveReportStaff.objects.filter(staff_id=staff_obj)
-    context = {
-        "leave_data": leave_data
-    }
-    return render(request, "staff_template/staff_apply_leave_template.html", context)
- 
- 
-def staff_apply_leave_save(request):
-    if request.method != "POST":
-        messages.error(request, "Invalid Method")
-        return redirect('staff_apply_leave')
-    else:
-        leave_date = request.POST.get('leave_date')
-        leave_message = request.POST.get('leave_message')
- 
-        staff_obj = Staffs.objects.get(admin=request.user.id)
-        try:
-            leave_report = LeaveReportStaff(staff_id=staff_obj,
-                                            leave_date=leave_date,
-                                            leave_message=leave_message,
-                                            leave_status=0)
-            leave_report.save()
-            messages.success(request, "Applied for Leave.")
-            return redirect('staff_apply_leave')
-        except:
-            messages.error(request, "Failed to Apply Leave")
-            return redirect('staff_apply_leave')
- 
- 
-def staff_feedback(request):
-  return render(request, "staff_template/staff_feedback_template.html")
- 
- 
-def staff_feedback_save(request):
-    if request.method != "POST":
-        messages.error(request, "Invalid Method.")
-        return redirect('staff_feedback')
-    else:
-        feedback = request.POST.get('feedback_message')
-        staff_obj = Staffs.objects.get(admin=request.user.id)
- 
-        try:
-            add_feedback = FeedBackStaffs(staff_id=staff_obj,
-                                          feedback=feedback,
-                                          feedback_reply="")
-            add_feedback.save()
-            messages.success(request, "Feedback Sent.")
-            return redirect('staff_feedback')
-        except:
-            messages.error(request, "Failed to Send Feedback.")
-            return redirect('staff_feedback')
- 
  
  
 @csrf_exempt
