@@ -24,13 +24,15 @@ SECRET_KEY = 'django-insecure-=i_09gg!o^2m=&^_)w1#ck2e5gq1rf!zb!o-a*1&-#g)dgetc$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
+MEDIA_URL="/media/"
+MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 
-STATIC_URL='/static/'
-STATICFILES_DIR = {
-    os.path.join(BASE_DIR,'static/')
-}
+STATIC_PATH = os.path.join(BASE_DIR,"static")
+
+STATIC_URL = "/static/" 
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
 
 #'D:/Fede/Documentos/Universidad/ERASMUS/Asignaturas/2/Python in Enterprise/Project/College_Management_System/student_project/student_project/templates'
 ALLOWED_HOSTS = []
@@ -79,7 +81,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'student_project.wsgi.application'
 
 
-# Database
+# Database os.path.join(BASE_DIR,"media")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
