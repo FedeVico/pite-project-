@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirec
 from django.contrib.auth import logout, authenticate, login
 from .models import CustomUser, Staffs, Students, AdminHOD
 from django.contrib import messages
- 
+
 def home(request):
     return render(request, 'home.html')
  

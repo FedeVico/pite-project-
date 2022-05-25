@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.urls import reverse
 import datetime
-from .models import CustomUser, Staffs, Courses, Subjects, Students, Attendance, AttendanceReport, LeaveReportStudent, FeedBackStudent, StudentResult
+from .models import CustomUser, Staffs, Courses, Subjects, Students, Attendance, AttendanceReport, StudentResult
  
 def student_home(request):
   student_obj = Students.objects.get(admin=request.user.id)

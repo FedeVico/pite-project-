@@ -15,7 +15,8 @@ urlpatterns = [
     path('registration', views.registration, name="registration"),
     path('doLogin', views.doLogin, name="doLogin"),
     path('doRegistration', views.doRegistration, name="doRegistration"),
-     
+    
+
       # URLS for Student
     path('student_home/', StudentViews.student_home, name="student_home"),
     path('student_view_attendance/', StudentViews.student_view_attendance, name="student_view_attendance"),

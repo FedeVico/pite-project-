@@ -33,7 +33,7 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = (
     STATIC_PATH,
 )
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True  
 #'D:/Fede/Documentos/Universidad/ERASMUS/Asignaturas/2/Python in Enterprise/Project/College_Management_System/student_project/student_project/templates'
 ALLOWED_HOSTS = []
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'student_app',
+    'import_export',
 ]
 
 MIDDLEWARE = [

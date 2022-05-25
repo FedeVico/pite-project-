@@ -1,11 +1,18 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser, AdminHOD, Staffs, Courses, Subjects, Students, Attendance, AttendanceReport, LeaveReportStudent, LeaveReportStaff, FeedBackStudent, FeedBackStaffs, NotificationStudent, NotificationStaffs
- 
+from import_export.admin import ImportExportMixin
+from .models import Task
+
+class TaskAdmin(ImportExportMixin, admin.ModelAdmin):
+    list_display = ['id_number', 'name', 'surname','second_surname', 'registration_num', 'email', 'movil', 'provincia', 'score', 'credits', 'year']
+
+
+admin.site.register(Task, TaskAdmin)
+
 # Register your models here.
 class UserModel(UserAdmin):
     pass
- 
  
 admin.site.register(CustomUser, UserModel)
  

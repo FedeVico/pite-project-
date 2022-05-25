@@ -3,8 +3,21 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
  
- 
- 
+
+class Task(models.Model):
+   id_number = models.CharField(max_length=30, null=True) 
+   name = models.CharField(max_length=30, null=True)
+   surname = models.CharField(max_length=30, default='text')
+   second_surname = models.CharField(max_length=30, default='text')
+   registration_num = models.CharField(max_length=30, default='text') 
+   email = models.EmailField(max_length=140, default='example@gmail.com')
+   movil = models.CharField(max_length=30, default='text') 
+   provincia = models.CharField(max_length=100, default='text')
+   score = models.CharField(max_length=30, default='text')
+   credits = models.CharField(max_length=140, default='text')
+   year = models.CharField(max_length=30, default='text')
+
+
 class SessionYearModel(models.Model):
     id = models.AutoField(primary_key=True)
     session_start_year = models.DateField()
