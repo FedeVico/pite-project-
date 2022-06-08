@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
+            migrations.CreateModel(
             name='CustomUser',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -190,7 +190,7 @@ class Migration(migrations.Migration):
                 ('status', models.BooleanField(default=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('attendance_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='student_app.attendance')),
+                #('attendance_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='student_app.attendance')),
                 ('student_id', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='student_app.students')),
             ],
         ),

@@ -3,7 +3,6 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
  
-
 class Task(models.Model):
    id_number = models.CharField(max_length=30, null=True) 
    name = models.CharField(max_length=30, null=True)
@@ -16,8 +15,7 @@ class Task(models.Model):
    score = models.CharField(max_length=30, default='text')
    credits = models.CharField(max_length=140, default='text')
    year = models.CharField(max_length=30, default='text')
-
-
+ 
 class SessionYearModel(models.Model):
     id = models.AutoField(primary_key=True)
     session_start_year = models.DateField()
@@ -43,6 +41,15 @@ class CustomUser(AbstractUser):
     user_type = models.CharField(default=1, choices=user_type_data, max_length=10)
  
  
+class Student(models.Model):  
+   id_number = models.AutoField(primary_key=True) 
+   name = models.CharField(max_length=30)
+   email = models.EmailField(blank=True)  
+   provincia = models.CharField(max_length=100, blank=True)
+   score = models.CharField(max_length=30)
+   credit = models.CharField(max_length=30)
+   year = models.CharField(max_length=30)
+
 class AdminHOD(models.Model):
     id = models.AutoField(primary_key=True)
     admin = models.OneToOneField(CustomUser, on_delete = models.CASCADE)
@@ -114,7 +121,7 @@ class AttendanceReport(models.Model):
     # Individual Student Attendance
     id = models.AutoField(primary_key=True)
     student_id = models.ForeignKey(Students, on_delete=models.DO_NOTHING)
-    attendance_id = models.ForeignKey(Attendance, on_delete=models.CASCADE)
+    attendance_id = models.ForeignKey(Attendance, on_delete=models.CASCADE, default=False)
     status = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

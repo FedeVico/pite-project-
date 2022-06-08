@@ -8,7 +8,7 @@ from django.core import serializers
 import json
  
  
-from .models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, Attendance, AttendanceReport, StudentResult
+from .models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, StudentResult, Attendance, AttendanceReport, StudentResult
  
  
 def staff_home(request):
@@ -33,7 +33,7 @@ def staff_home(request):
     subject_count = subjects.count()
     print(subject_count)
     print(students_count)
-     
+    
     # Fetch All Attendance Count
     attendance_count = Attendance.objects.filter(subject_id__in=subjects).count()
      
@@ -110,7 +110,7 @@ def get_students(request):
  
  
  
- 
+'''
 @csrf_exempt
 def save_attendance_data(request):
    
@@ -144,7 +144,7 @@ def save_attendance_data(request):
     except:
         return HttpResponse("Error")
  
- 
+ '''
  
  
 def staff_update_attendance(request):

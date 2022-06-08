@@ -33,14 +33,17 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = (
     STATIC_PATH,
 )
-IMPORT_EXPORT_USE_TRANSACTIONS = True  
+
 #'D:/Fede/Documentos/Universidad/ERASMUS/Asignaturas/2/Python in Enterprise/Project/College_Management_System/student_project/student_project/templates'
 ALLOWED_HOSTS = []
 
 
+IMPORT_EXPORT_USE_TRANSACTIONS = True
+
 # Application definition
 
 INSTALLED_APPS = [
+    'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +51,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'student_app',
-    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +62,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'student_project.urls'
 

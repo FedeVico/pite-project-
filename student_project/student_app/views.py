@@ -1,7 +1,10 @@
 from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
 from django.contrib.auth import logout, authenticate, login
-from .models import CustomUser, Staffs, Students, AdminHOD
+from .models import CustomUser, Staffs, Students, AdminHOD, Student
 from django.contrib import messages
+from import_export import resources 
+from tablib import Dataset 
+from .resource import StudentResource
 
 def home(request):
     return render(request, 'home.html')
@@ -124,3 +127,17 @@ def get_user_type_from_email(email_id):
         return CustomUser.EMAIL_TO_USER_TYPE_MAP[email_user_type]
     except:
         return None
+
+        
+ 
+def importar(request):
+    #template = loader.get_template('export/importar.html')  if request.method == 'POST':  
+    student_resource = StudentResource()  
+    dataset = Dataset()  
+     #print(dataset)  
+    nuevas_personas = request.FILES['xlsfile']  
+     #print(nuevas_personas)  
+    imported_data = dataset.load(nuevas_personas.read())  
+     #print(dataset)  
+    result = student_resource.import_data(dataset, dry_run=True) # Test the data import  #print(result.has_errors())  if not result.has_errors(): 
+    return render(request.POST.get('export/importar.html'))

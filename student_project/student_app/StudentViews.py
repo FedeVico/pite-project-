@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.urls import reverse
 import datetime
-from .models import CustomUser, Staffs, Courses, Subjects, Students, Attendance, AttendanceReport, StudentResult
+from .models import CustomUser, Staffs, Courses, Subjects, Students, Attendance, AttendanceReport, LeaveReportStudent, FeedBackStudent, StudentResult 
  
 def student_home(request):
   student_obj = Students.objects.get(admin=request.user.id)
@@ -99,7 +99,7 @@ def student_view_attendance_post(request):
         }
  
         return render(request, 'student_template/student_attendance_data.html', context)
-        
+
  
 def student_apply_leave(request):
     student_obj = Students.objects.get(admin=request.user.id)

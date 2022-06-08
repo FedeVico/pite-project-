@@ -47,8 +47,7 @@ def admin_home(request):
     for staff in staffs:
         subject_ids = Subjects.objects.filter(staff_id=staff.admin.id)
         attendance = Attendance.objects.filter(subject_id__in=subject_ids).count()
-        leaves = LeaveReportStaff.objects.filter(staff_id=staff.id,
-                                                 leave_status=1).count()
+        leaves = LeaveReportStaff.objects.filter(staff_id=staff.id,leave_status=1).count()
         staff_attendance_present_list.append(attendance)
         staff_attendance_leave_list.append(leaves)
         staff_name_list.append(staff.admin.first_name)
@@ -726,7 +725,7 @@ def admin_view_attendance(request):
     return render(request, "hod_template/admin_view_attendance.html", context)
  
  
-@csrf_exempt
+#@csrf_exempt
 def admin_get_attendance_dates(request):
     
     subject_id = request.POST.get("subject")
@@ -772,7 +771,7 @@ def admin_get_attendance_student(request):
         list_data.append(data_small)
  
     return JsonResponse(json.dumps(list_data), content_type="application/json", safe=False)
- 
+
  
 def admin_profile(request):
     user = CustomUser.objects.get(id=request.user.id)
