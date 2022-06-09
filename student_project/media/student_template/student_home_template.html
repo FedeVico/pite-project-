@@ -10,28 +10,112 @@ Student Home
 
 <section class="content">
 	<div class="container-fluid">
+        </div>
 
-			<!-- ./col -->
-			<div class="col-lg-3 col-6">
-				<!-- small box -->
-				<div class="small-box bg-danger">
-					<div class="inner">
-						<h3>{{ total_subjects }}</h3>
-						<p>Total Subjects</p>
-					</div>
-					<div class="icon">
-						<i class="ion ion-pie-graph"></i>
-					</div>
-					<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-				</div>
-			</div>
-			
-			
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- PIE CHART -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Percentage of success of each subject 2020/21</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- aqui hay que meter las tablas -->
+                <img src="{% static 'dist/img/average_marks20.jfif' %}"style="min-height: 450px; height: 350px; max-height: 350px; max-width: 100%;">
+                <canvas id="pieChart" style="min-height: 0px; height: 0px; max-height: 0px; max-width: 0%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+          <div class="col-lg-6">
+            <!-- DONUT CHART -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Percentage of success of each subject 2019/20</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <img src="{% static 'dist/img/porcentaje_aprob.jfif' %}"style="min-height: 450px; height: 450px; max-height: 450px; max-width: 100%;">
+                <canvas id="pieChart" style="min-height: 0px; height: 0px; max-height: 0px; max-width: 0%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            
+          </div>
+        </div>
+
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- PIE CHART -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Average final grades 2020/2021</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- aqui hay que meter las tablas -->
+                <img src="{% static 'dist/img/average_marks.jfif' %}"style="min-height: 450px; height: 350px; max-height: 350px; max-width: 100%;">
+                <canvas id="pieChart" style="min-height: 0px; height: 0px; max-height: 0px; max-width: 0%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+          <div class="col-lg-6">
+            <!-- DONUT CHART -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Average final grades 2019/2020</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- aqui hay que meter las tablas -->
+                <img src="{% static 'dist/img/average_marks1920.jfif' %}"style="min-height: 450px; height: 350px; max-height: 350px; max-width: 100%;">
+                <canvas id="pieChart" style="min-height: 0px; height: 0px; max-height: 0px; max-width: 0%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            
+          </div>
+        </div>	
 			<!-- ./col -->
 		</div>
 		{% comment %} Boxes Section Ends {% endcomment %}
 	
-			
+    
+
+    
+  
+  <!-- ./col -->
+    </div>
 			
 		</div>
 	

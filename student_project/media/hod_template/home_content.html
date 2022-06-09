@@ -1,5 +1,9 @@
 {% extends 'hod_template/base_template.html' %}
 
+{% block page_title %}
+    Admin Home
+{% endblock page_title %}
+
 {% block main_content %}
 
 {% load static %}
@@ -12,7 +16,7 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>{{ all_student_count }}</h3>
+                  <h3>4871</h3>
 
                   <p>Total Students</p>
                 </div>
@@ -27,7 +31,7 @@
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>{{ staff_count }}</h3>
+                  <h3>132</h3>
 
                   <p>Total Staffs</p>
                 </div>
@@ -58,7 +62,7 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>{{ subject_count }}</h3>
+                  <h3>14 </h3>
 
                   <p>Total Subjects</p>
                 </div>
@@ -69,15 +73,15 @@
               </div>
             </div>
             <!-- ./col -->
-            
           </div>
+
           <!-- /.row -->
           <div class="row">
             <div class="col-lg-6">
               <!-- PIE CHART -->
               <div class="card card-danger">
                 <div class="card-header">
-                  <h3 class="card-title">Student and Staff Chart</h3>
+                  <h3 class="card-title">Percentage of success</h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -86,7 +90,9 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <!-- aqui hay que meter las tablas -->
+                  <img src="{% static 'dist/img/porc_aprob.jfif' %}"style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;">
+                  <canvas id="pieChart" style="min-height: 0px; height: 0px; max-height: 0px; max-width: 0%;"></canvas>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -97,7 +103,7 @@
               <!-- DONUT CHART -->
               <div class="card card-danger">
                 <div class="card-header">
-                  <h3 class="card-title">Total Subjects in Each Course</h3>
+                  <h3 class="card-title">Number of users (students & professors)</h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -106,8 +112,8 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
+                  <img src="{% static 'dist/img/users.png' %}"style="min-height: 300px; height: 250px; max-height: 250px; max-width: 100%;">
+                  <canvas id="pieChart" style="min-height: 10px; height: 10px; max-height: 10px; max-width: 0%;"></canvas>                </div>
                 <!-- /.card-body -->
               </div>
               <!-- /.card -->
@@ -121,7 +127,7 @@
               <!-- PIE CHART -->
               <div class="card card-info">
                 <div class="card-header">
-                  <h3 class="card-title">Total Student in Each Course</h3>
+                  <h3 class="card-title">Students from each country 2020/2021</h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -130,7 +136,8 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <canvas id="pieChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <img src="{% static 'dist/img/alumnos_pais2020.jfif' %}"style="min-height: 350px; height: 250px; max-height: 250px; max-width: 100%;">
+                  <canvas id="pieChart" style="min-height: 10px; height: 10px; max-height: 10px; max-width: 0%;"></canvas>               
                 </div>
                 <!-- /.card-body -->
                 </div>
@@ -140,7 +147,7 @@
               <!-- PIE CHART -->
               <div class="card card-info">
                 <div class="card-header">
-                  <h3 class="card-title">Total Students in Each Subject</h3>
+                  <h3 class="card-title">Students from each country 2019/2020</h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -149,8 +156,8 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <canvas id="pieChart3" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
+                  <img src="{% static 'dist/img/alumnos_pais2019.jfif' %}"style="min-height: 350px; height: 250px; max-height: 250px; max-width: 100%;">
+                  <canvas id="pieChart" style="min-height: 10px; height: 10px; max-height: 10px; max-width: 0%;"></canvas>                </div>
                 <!-- /.card-body -->
             </div>
             </div>
